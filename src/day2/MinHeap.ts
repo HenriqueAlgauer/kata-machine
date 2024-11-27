@@ -16,17 +16,15 @@ export default class MinHeap {
         if (this.length === 0) {
             return -1
         }
-
         const out = this.data[0]
-        if (this.length === 1) {
+        this.length--
+
+        if (this.length === 0) {
             this.data = []
             return out
         }
-
-        this.length--
         this.data[0] = this.data[this.length]
         this.heapifyDown(0)
-
         return out
     }
 
@@ -84,6 +82,6 @@ export default class MinHeap {
     }
 
     private rightChild(index: number): number {
-        return index * 2 + 1
+        return index * 2 + 2
     }
 }
